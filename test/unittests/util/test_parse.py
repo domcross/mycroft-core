@@ -184,6 +184,8 @@ class TestNormalize(unittest.TestCase):
         # invoke helper functions directly to test certain conditions which are
         # difficult to trigger on purpose.
         replaceable = _ReplaceableNumber(1, ["test_token"])
+        getattr(replaceable, "key")
+
         self.assertRaises(AttributeError, setattr(replaceable, "key", None))
         with self.assertRaises(Exception) as error:
             setattr(replaceable, "key", type(None))
